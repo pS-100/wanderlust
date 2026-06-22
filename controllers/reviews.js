@@ -9,7 +9,7 @@ module.exports.createReview = async (req, res) => {
   listing.reviews.push(newReview);
 
   await newReview.save();
-  await listing.save(); //any changes in existing data need to save n save() itself async fun.
+  await listing.save();     //any changes in existing data need to save n save() itself async fun.
 
   console.log("new review saved");
   req.flash("success", "Review Created!");
@@ -24,5 +24,4 @@ module.exports.deleteReview = async (req, res) => {
   await Review.findByIdAndDelete(reviewId);
   req.flash("success", "Review Deleted!");
   res.redirect(`/listings/${id}`);
-  // res.redirect("/listings/:id");
 };

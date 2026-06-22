@@ -24,7 +24,9 @@ module.exports.showListings = async (req, res) => {
     req.flash("error", "Listing you requested for does not exist!");
     res.redirect("/listings");
   }
+
   console.log(listing);
+  
   res.render("listings/show.ejs", { listing });
 };
 
@@ -49,8 +51,10 @@ module.exports.renderEditForm = async (req, res) => {
     res.redirect("/listings");
   }
   let orinalImageUrl = listing.image.url;
-  orinalImageUrl = orinalImageUrl.replace("/upload", "/upload/w_250")
+  orinalImageUrl = orinalImageUrl.replace("/upload", "/upload/w_250");
+
   console.log(orinalImageUrl);
+
   res.render("listings/edit.ejs", { listing, orinalImageUrl });
 };
 
@@ -72,7 +76,9 @@ module.exports.updateListing = async (req, res) => {
 module.exports.deleteListing = async (req, res) => {
   let { id } = req.params;
   let deletedListing = await Listing.findByIdAndDelete(id);
+
   console.log(deletedListing);
+
   req.flash("success", "Listing Deleted!");
   res.redirect("/listings");
 };

@@ -12,7 +12,7 @@ const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js");
 const session = require("express-session");
 const MongoStore = require("connect-mongo").default ;
-console.log(MongoStore);
+//console.log(MongoStore);
 
 const flash = require("connect-flash");
 const passport = require("passport");
@@ -53,7 +53,7 @@ const store = MongoStore.create({
 });
 
 
-store.on("erroe", () => {
+store.on("error", () => {
   console.log("ERROR in  MONGO SESSION STORE", err);
 });
 
@@ -69,14 +69,17 @@ const sessionOptions = {
   },
 };
 
-
-
 app.use(session(sessionOptions));
 app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));           //static authenticate method of model in LocalStrategy
+
+app.use((req,res,next)=>{
+    res.locals.currUser = req.user;
+    next();
+});
 
 //static methods that support passport session
 passport.serializeUser(User.serializeUser());                   //user related info save into session
