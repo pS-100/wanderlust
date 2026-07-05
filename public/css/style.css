@@ -104,23 +104,8 @@ body {
 /* show page */
 .show-img {
     height: 80vh;
-}
-
-@media (max-width: 1024px) {
-    .show-img {
-        max-height: 250px;
-    }
-}
-
-.show-img {
     width: 100%;
 }
-
-/* @media (min-width: 768px) {
-    .card {
-        width: 50%;
-    }
-} */
 
 .btns {
     display: flex;

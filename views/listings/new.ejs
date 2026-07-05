@@ -61,7 +61,7 @@
           />
           <div class="invalid-feedback">Price Should be Valid</div>
         </div>
-        <div class="mb-3 col-md-8">
+        <div class="mb-3 col-md-4">
           <label for="country" class="form-label">Country</label>
           <input
             type="text"
@@ -71,6 +71,30 @@
             required
           />
           <div class="invalid-feedback">Country Name Should be Valid</div>
+        </div>
+        <div class="mb-3 col-md-4">
+          <label for="country" class="form-label">Category</label>
+          <select
+            type="text"
+            name="listing[category]"
+            class="form-control"
+            required
+          >
+            <option value="" selected disabled>Select a category</option>
+            <option value="amazing pools">Amazing Pools</option>
+            <option value="arctic">Arctic</option>
+            <option value="boats">Boats</option>
+            <option value="camping">Camping</option>
+            <option value="castles">Castles</option>
+            <option value="domes">Domes</option>
+            <option value="farms">Farms</option>
+            <option value="iconic cities">Iconic Cities</option>
+            <option value="mountains">Mountains</option>
+            <option value="rooms">Rooms</option>
+            <option value="trending">Trending</option>
+            <option value="yacht">Yacht</option>
+          </select>
+          <div class="invalid-feedback">Category Name Should be Valid</div>
         </div>
       </div>
 
